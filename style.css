@@ -1,0 +1,251 @@
+/* RESET BÁSICO */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background-color: #121212; /* Fondo oscuro */
+    color: #e0e0e093; /* Texto claro */
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* CAMBIO 1: Ancho aumentado a 1200px para que quepan 4 tarjetas */
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* HEADER */
+.hero {
+    padding: 40px 20px;
+    text-align: center;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 10px; color: #fff; }
+.bio { max-width: 600px; margin: 0 auto 30px; opacity: 0.8; }
+.cta-button {
+    background-color: #ffffffb0;
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.cta-button:hover { background-color: #ccc; }
+
+/* NAVBAR ESTILOS (VERSIÓN BLANCA) */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.877); /* Blanco casi sólido */
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+    backdrop-filter: blur(5px);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Tamaño normal (PC) */
+.nav-logo {
+    height: 50px; 
+}
+
+/* Tamaño para celular */
+@media (max-width: 600px) {
+    .nav-logo {
+        height: 50px; /* En el móvil se verá más pequeño automáticamente */
+    }
+}
+/* Botón de contacto en Navbar */
+.nav-contact-btn {
+    background: transparent;
+    color: #000; /* Texto NEGRO */
+    border: 1px solid #000; /* Borde NEGRO */
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+.nav-contact-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* SEPARADORES DE GÉNERO */
+.genre-title {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+    border-left: 4px solid #4a90e2;
+    padding-left: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.genre-title:first-of-type { margin-top: 10px; }
+
+/* DISCOGRAFÍA (GRID 4 COLUMNAS) */
+.discography { padding: 40px 0; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columnas Fijas */
+    gap: 20px;
+}
+
+/* Estilos de la Tarjeta */
+.card {
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column; /* Para ordenar contenido verticalmente */
+    transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-5px); border-color: #555; }
+
+.card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Hace que todas las tarjetas midan lo mismo */
+}
+
+.card h3 { 
+    font-size: 1rem; 
+    color: #fff; 
+    margin-bottom: 5px; 
+}
+
+.artist { 
+    font-size: 0.85rem; 
+    color: #aaa; 
+    margin-bottom: 12px; 
+    font-weight: bold; 
+}
+
+/* Etiquetas (Tags y Géneros) */
+.tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: auto; /* Empuja los tags al fondo de la tarjeta */
+}
+
+.tag {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+/* Colores de etiquetas */
+.tag.album { background-color: #4a90e2; color: white; }
+.tag.single { background-color: #e24a90; color: white; }
+.tag.demo { background-color: #e2904a; color: white; }
+
+.genre { 
+    font-size: 0.65rem; 
+    border: 1px solid #555; 
+    padding: 3px 6px; 
+    border-radius: 4px; 
+    color: #ccc;
+}
+
+/* Texto de ayuda (solo se ve si no pegaste el iframe aun) */
+.placeholder-text {
+    background: #000;
+    color: #444;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #333;
+}
+
+/* FOOTER */
+footer { text-align: center; padding: 60px 20px; font-size: 0.8rem; opacity: 0.5; }
+
+/* MODAL (POPUP) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000; /* Encima del Navbar */
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    background-color: #1e1e1e;
+    margin: 10% auto;
+    padding: 40px;
+    border: 1px solid #444;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+.close-btn:hover { color: #fff; }
+.email-link { display: block; margin: 20px 0; color: #4a90e2; font-size: 1.2rem; text-decoration: none; }
+.social-links a { color: #888; text-decoration: none; margin: 0 10px; }
+.social-links a:hover { color: #fff; }
+
+/* RESPONSIVE (CELULAR Y TABLET) */
+@media (max-width: 1024px) {
+    .container { max-width: 95%; }
+    .grid { grid-template-columns: repeat(3, 1fr); } /* 3 en pantallas medianas */
+}
+
+@media (max-width: 768px) {
+    .grid { grid-template-columns: repeat(2, 1fr); } /* 2 en Tablets */
+    .hero h1 { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+    .grid { grid-template-columns: 1fr; } /* 1 en Celulares */
+    .nav-content { padding: 0 15px; }
+}
+
+
+.card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    cursor: pointer; /* <--- ESTO ES IMPORTANTE */
+    position: relative; /* Para efectos visuales */
+}
+
+.card-info:hover {
+    background-color: rgba(255,255,255,0.05); /* Un brillo sutil al pasar el mouse */
+}
+
+/* Estilo para los botones dentro del popup */
+.modal-btn {
+    display: block;
+    background: #333;
+    color: #fff;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.2s;
+    border: 1px solid #444;
+}
+.modal-btn:hover { background: #fff; color: #000; border-color: #fff; }
