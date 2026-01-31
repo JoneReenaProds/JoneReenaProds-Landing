@@ -8,20 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar">
+
+    <nav class="navbar">
         <div class="container nav-content">
             <img src="logo.webp" alt="Logo Jone Reena" class="nav-logo">
             
-            <button id="nav-btn-contact" class="nav-contact-btn">CONTACTO</button>
-            <button id="nav-btn-contact" class="nav-contact-btn">SERVICIOS</button>
+            <div class="nav-buttons-group">
+                <button id="nav-btn-services" class="nav-contact-btn">SERVICIOS</button>
+                <button id="nav-btn-contact" class="nav-contact-btn">CONTACTO</button>
+            </div>
         </div>
     </nav>
-   <header class="hero">
+
+    <header class="hero">
         <div class="container">
             <h1>Jone Reena Prods</h1>
-            <p class="bio">
-                <p>
-        <strong>Productor Musical & Artista Sonoro.</strong> 
+            <div class="bio">
+    <p style="text-align: justify;">
+        <strong>Productor Musical & Artista Sonoro.</strong><br> 
         Construyo identidades sonoras a través de un espectro amplio: 
         desde la complejidad del <strong>Mathrock, Prog y Unixcore</strong>, 
         pasando por la emotividad del <strong>Emo, Shoegaze y Alt Rock</strong>, 
@@ -29,27 +33,20 @@
         Fusiono texturas experimentales con estructuras sólidas.
     </p>
 
-    <p>
-        <strong>Técnico de Audio Empresarial.</strong> 
+    <p style="text-align: justify;">
+        <strong>Técnico de Audio.</strong><br>
         Especialista en soluciones sonoras para el sector corporativo, 
-        con amplia experiencia en la producción de <strong>spots</strong> 
-        y la gestión técnica de <strong>audio para conferencias</strong>, 
-        asegurando claridad y profesionalismo en cada evento.
+        con experiencia en la producción de audio en <strong>videos, reels, spots</strong> 
+        y la gestión técnica de <strong>audio para conferencias / streaming</strong> & 
+        <strong>Consultoría Audio - Pro / Studio</strong>.
     </p>
-
-    <p>
-        <strong>Consultor de Compras de Equipos de Audio / Studio.</strong> 
-        Asesoría estratégica en la selección y adquisición de hardware y software profesional. 
-        Optimizo la inversión en tecnología mediante el diseño de setups personalizados 
-        para estudios y entornos de trabajo de alto rendimiento.
-    </p>
-            </p>
+</div>
         </div>
     </header>
 
     <section class="discography">
         <div class="container">
-            <h2>Discografía Selecta</h2>
+            <h2>Discografía de Producción</h2>
 
             <h3 class="genre-title">Mathrock, Prog & Unixcore</h3>
             <div class="grid">
@@ -353,7 +350,41 @@
                 </div>
         </div>
     </div>
+<div id="services-modal" class="modal">
+        <div class="modal-content" style="text-align: left;">
+            <span class="close-services-btn" style="float:right; font-size:28px; cursor:pointer;">×</span>
+            <h2 style="text-align: center; margin-bottom: 20px; color:#fff;">Servicios</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <h3 style="color:#4a90e2; border-bottom:1px solid #333; margin-bottom:10px;">Producción Musical</h3>
+                <ul style="color:#ccc; padding-left: 20px; list-style-type: none;">
+                    <li>🔹 Mix y Mastering</li>
+                    <li>🔹 Instrumentalización y arreglos</li>
+                </ul>
+            </div>
 
+            <div style="margin-bottom: 20px;">
+                <h3 style="color:#e24a90; border-bottom:1px solid #333; margin-bottom:10px;">Técnico de Audio</h3>
+                <ul style="color:#ccc; padding-left: 20px; list-style-type: none;">
+                    <li>🔹 Producción de audio (videos, spots, reels)</li>
+                    <li>🔹 Gestión técnica de audio para conferencias</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="color:#e2904a; border-bottom:1px solid #333; margin-bottom:10px;">Consultoría Audio  - Pro / Studio</h3>
+                <ul style="color:#ccc; padding-left: 20px; list-style-type: none;">
+                    <li>🔹 Asesoría en adquisición de hardware/software</li>
+                    <li>🔹 Optimización de inversión tecnológica</li>
+                    <li>🔹 Diseño de setups personalizados</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button onclick="document.getElementById('services-modal').style.display='none'; document.getElementById('contact-modal').style.display='block';" class="nav-contact-btn" style="width: 100%; color: #000; background: #fff;">Cotizar Ahora</button>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

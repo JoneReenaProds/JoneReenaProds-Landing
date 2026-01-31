@@ -28,8 +28,8 @@ window.onclick = function(event) {
 }
 /* --- 1. POPUP DE CONTACTO --- */
 const contactModal = document.getElementById("contact-modal");
-const contactBtnHeader = document.getElementById("btn-contact");
-const contactBtnNav = document.getElementById("nav-btn-contact");
+const contactBtnHeader = document.getElementById("btn-contact"); // Botón grande del inicio
+const contactBtnNav = document.getElementById("nav-btn-contact"); // Botón del menú
 const closeContact = document.getElementsByClassName("close-btn")[0];
 
 function openContact() { contactModal.style.display = "block"; }
@@ -40,7 +40,27 @@ if(contactBtnNav) contactBtnNav.onclick = openContact;
 if(closeContact) closeContact.onclick = closeContactFunc;
 
 
-/* --- 2. POPUP DE PROYECTOS (ACTUALIZADO CON YOUTUBE) --- */
+/* --- 2. POPUP DE SERVICIOS (NUEVO) --- */
+const servicesModal = document.getElementById("services-modal");
+const servicesBtn = document.getElementById("nav-btn-services");
+const closeServices = document.getElementsByClassName("close-services-btn")[0];
+
+// Abrir modal servicios
+if(servicesBtn) {
+    servicesBtn.onclick = function() {
+        servicesModal.style.display = "block";
+    }
+}
+
+// Cerrar modal servicios
+if(closeServices) {
+    closeServices.onclick = function() {
+        servicesModal.style.display = "none";
+    }
+}
+
+
+/* --- 3. POPUP DE PROYECTOS (CON YOUTUBE) --- */
 const projectModal = document.getElementById("project-modal");
 const closeProject = document.getElementsByClassName("close-project-btn")[0];
 const modalArtist = document.getElementById("modal-artist-name");
@@ -59,7 +79,7 @@ cards.forEach(card => {
         // Links
         const ig = this.getAttribute('data-ig');
         const spotify = this.getAttribute('data-spotify');
-        const youtube = this.getAttribute('data-youtube'); // <--- NUEVO
+        const youtube = this.getAttribute('data-youtube');
         const web = this.getAttribute('data-web');
 
         // 2. Ponemos los textos
@@ -76,7 +96,6 @@ cards.forEach(card => {
             modalLinks.innerHTML += `<a href="${spotify}" target="_blank" class="modal-btn">🎵 Spotify</a>`;
         }
         if(youtube && youtube !== "#") {
-            // Botón nuevo de YouTube
             modalLinks.innerHTML += `<a href="${youtube}" target="_blank" class="modal-btn">📺 Ver en YouTube</a>`;
         }
         if(web && web !== "#") {
@@ -100,8 +119,10 @@ if(closeProject) {
     }
 }
 
-/* --- CERRAR AL CLICKEAR AFUERA --- */
+
+/* --- CERRAR AL CLICKEAR AFUERA (CUALQUIERA DE LOS 3) --- */
 window.onclick = function(event) {
     if (event.target == contactModal) { contactModal.style.display = "none"; }
     if (event.target == projectModal) { projectModal.style.display = "none"; }
+    if (event.target == servicesModal) { servicesModal.style.display = "none"; }
 }

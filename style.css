@@ -10,23 +10,33 @@ body {
 /* CAMBIO 1: Ancho aumentado a 1200px para que quepan 4 tarjetas */
 .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-/* HEADER */
+/* HEADER / HERO con Imagen de Fondo MÁS OSCURA */
 .hero {
-    padding: 40px 20px;
+    position: relative;
+    padding: 100px 20px;
     text-align: center;
+    color: #fff;
+    
+    /* MIRA AQUÍ EL CAMBIO: De 0.7 pasamos a 0.85 */
+    /* Si lo quieres casi negro total, prueba con 0.95 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('hero.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #333;
 }
-.hero h1 { font-size: 3rem; margin-bottom: 10px; color: #fff; }
-.bio { max-width: 600px; margin: 0 auto 30px; opacity: 0.8; }
-.cta-button {
-    background-color: #ffffffb0;
-    color: #000;
-    border: none;
-    padding: 12px 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+
+/* Mantenemos las sombras del texto por si acaso */
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
-.cta-button:hover { background-color: #ccc; }
+
+.bio {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); 
+}
 
 /* NAVBAR ESTILOS (VERSIÓN BLANCA) */
 .navbar {
@@ -86,9 +96,6 @@ body {
     letter-spacing: 1px;
 }
 .genre-title:first-of-type { margin-top: 10px; }
-
-/* DISCOGRAFÍA (GRID 4 COLUMNAS) */
-.discography { padding: 40px 0; }
 
 .grid {
     display: grid;
@@ -249,3 +256,94 @@ footer { text-align: center; padding: 60px 20px; font-size: 0.8rem; opacity: 0.5
     border: 1px solid #444;
 }
 .modal-btn:hover { background: #fff; color: #000; border-color: #fff; }
+
+/* Esto junta los botones SERVICIOS y CONTACTO */
+.nav-buttons-group {
+    display: flex;
+    gap: 20px; /* Espacio entre botones */
+}
+
+/* BIO EN 2 COLUMNAS */
+.bio {
+    display: flex; /* Activa el modo columnas */
+    gap: 40px; /* Espacio entre la columna izq y der */
+    justify-content: center;
+    text-align: left; /* El texto se lee mejor alineado a la izquierda en columnas */
+    max-width: 1000px; /* Aumentamos el ancho para que quepan las 2 columnas */
+    margin: 0 auto 30px;
+    opacity: 0.9;
+}
+
+.bio p {
+    flex: 1; /* Hace que ambos párrafos tengan el mismo ancho */
+    margin: 0;
+    font-size: 0.95rem; /* Un tamaño cómodo de leer */
+}
+
+/* RESPONSIVE: En celulares vuelve a ser 1 sola columna */
+@media (max-width: 768px) {
+    .bio {
+        flex-direction: column; /* Pone uno debajo del otro */
+        text-align: center; /* En celular se ve mejor centrado */
+        gap: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* --- ADAPTABILIDAD MÓVIL (RESPONSIVE) --- */
+/* Pega esto al FINAL de tu style.css */
+
+@media (max-width: 768px) {
+    
+    /* 1. Ajuste solicitado para el Hero en móvil */
+    .hero {
+        position: relative;
+        padding: 17px 20px; /* Tu medida personalizada */
+        min-height: auto;   /* Evita que se quede muy alto si tenía altura fija */
+    }
+
+    /* 2. Solución para el botón cortado en el Navbar */
+    .nav-content {
+        flex-wrap: nowrap; /* Evita que se rompa la línea */
+        gap: 5px; /* Reduce espacio entre logo y botones */
+    }
+
+    /* Hacemos el logo más pequeño para dar espacio a los botones */
+    .nav-logo {
+        height: 35px; /* Reducimos altura (antes era más grande) */
+        width: auto;
+    }
+
+    /* Reducimos el tamaño de los botones en celular */
+    .nav-contact-btn {
+        padding: 6px 10px; /* Relleno más pequeño */
+        font-size: 0.7rem; /* Letra más chica (11px aprox) */
+        letter-spacing: 0; /* Quitamos espacio entre letras para ahorrar sitio */
+    }
+
+    /* Juntamos más los dos botones entre sí */
+    .nav-buttons-group {
+        gap: 5px; 
+    }
+
+.container {
+    margin-right: 20px;
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    margin: 18% auto;
+    margin-left: 16px;
+
+}
+
+
+
+
